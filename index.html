@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英打遊戲版本二</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+
+    .keyboard-img {
+      max-width: 80%;
+      width: 600px;
+      height: auto;
+      margin-bottom: 24px;
+      border-radius: 8px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>英打遊戲版本二</h1>
+  
+  <!-- 引用 assets 資料夾裡的鍵盤圖片 -->
+  <img src="assets/keyboard.png" alt="鍵盤圖示" class="keyboard-img">
+  
+  <button type="button" id="startBtn">開始</button>
+
+  <!-- 引用 assets 資料夾裡的音效 -->
+  <audio id="beepSound" src="assets/beep.wav"></audio>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const beepSound = document.getElementById('beepSound');
+
+    startBtn.addEventListener('click', () => {
+      beepSound.currentTime = 0;
+      beepSound.play().catch(error => {
+        console.log("播放音效失敗，請確認音效路徑:", error);
+      });
+    });
+  </script>
+
+</body>
+</html>
